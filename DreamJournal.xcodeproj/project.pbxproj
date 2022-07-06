@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		54509A052875F2D000098986 /* DreamJournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54509A042875F2D000098986 /* DreamJournalApp.swift */; };
-		54509A072875F2D000098986 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54509A062875F2D000098986 /* ContentView.swift */; };
 		54509A092875F2D100098986 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54509A082875F2D100098986 /* Assets.xcassets */; };
 		54509A0C2875F2D100098986 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54509A0B2875F2D100098986 /* Preview Assets.xcassets */; };
+		54509A132875F4E900098986 /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54509A122875F4E800098986 /* EntryListView.swift */; };
+		54509A152875FCFB00098986 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54509A142875FCFB00098986 /* DetailView.swift */; };
+		54509A17287601F200098986 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54509A16287601F200098986 /* Entry.swift */; };
+		54509A1928760D0D00098986 /* EntryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54509A1828760D0D00098986 /* EntryListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		54509A012875F2CF00098986 /* DreamJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54509A042875F2D000098986 /* DreamJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamJournalApp.swift; sourceTree = "<group>"; };
-		54509A062875F2D000098986 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		54509A082875F2D100098986 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54509A0B2875F2D100098986 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		54509A122875F4E800098986 /* EntryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListView.swift; sourceTree = "<group>"; };
+		54509A142875FCFB00098986 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		54509A16287601F200098986 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		54509A1828760D0D00098986 /* EntryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +58,12 @@
 			isa = PBXGroup;
 			children = (
 				54509A042875F2D000098986 /* DreamJournalApp.swift */,
-				54509A062875F2D000098986 /* ContentView.swift */,
 				54509A082875F2D100098986 /* Assets.xcassets */,
 				54509A0A2875F2D100098986 /* Preview Content */,
+				54509A122875F4E800098986 /* EntryListView.swift */,
+				54509A1828760D0D00098986 /* EntryListViewModel.swift */,
+				54509A142875FCFB00098986 /* DetailView.swift */,
+				54509A16287601F200098986 /* Entry.swift */,
 			);
 			path = DreamJournal;
 			sourceTree = "<group>";
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54509A072875F2D000098986 /* ContentView.swift in Sources */,
+				54509A17287601F200098986 /* Entry.swift in Sources */,
 				54509A052875F2D000098986 /* DreamJournalApp.swift in Sources */,
+				54509A152875FCFB00098986 /* DetailView.swift in Sources */,
+				54509A132875F4E900098986 /* EntryListView.swift in Sources */,
+				54509A1928760D0D00098986 /* EntryListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
