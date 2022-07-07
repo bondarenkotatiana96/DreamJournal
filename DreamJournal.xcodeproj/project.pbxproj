@@ -38,6 +38,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		543A5BA42877433E00DE64D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				54509A142875FCFB00098986 /* DetailView.swift */,
+				54509A122875F4E800098986 /* EntryListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		543A5BA52877434600DE64D7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				54509A16287601F200098986 /* Entry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		543A5BA62877435100DE64D7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				54509A1828760D0D00098986 /* EntryListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		543A5BA72877437400DE64D7 /* Misc. */ = {
+			isa = PBXGroup;
+			children = (
+				54509A082875F2D100098986 /* Assets.xcassets */,
+				54509A0A2875F2D100098986 /* Preview Content */,
+			);
+			path = Misc.;
+			sourceTree = "<group>";
+		};
 		545099F82875F2CF00098986 = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				54509A042875F2D000098986 /* DreamJournalApp.swift */,
-				54509A082875F2D100098986 /* Assets.xcassets */,
-				54509A0A2875F2D100098986 /* Preview Content */,
-				54509A122875F4E800098986 /* EntryListView.swift */,
-				54509A1828760D0D00098986 /* EntryListViewModel.swift */,
-				54509A142875FCFB00098986 /* DetailView.swift */,
-				54509A16287601F200098986 /* Entry.swift */,
+				543A5BA62877435100DE64D7 /* ViewModels */,
+				543A5BA52877434600DE64D7 /* Models */,
+				543A5BA42877433E00DE64D7 /* Views */,
+				543A5BA72877437400DE64D7 /* Misc. */,
 			);
 			path = DreamJournal;
 			sourceTree = "<group>";
@@ -278,7 +310,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DreamJournal/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DreamJournal/Misc./Preview Content\"";
 				DEVELOPMENT_TEAM = QAY6XTDMYU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -307,7 +339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DreamJournal/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DreamJournal/Misc./Preview Content\"";
 				DEVELOPMENT_TEAM = QAY6XTDMYU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
