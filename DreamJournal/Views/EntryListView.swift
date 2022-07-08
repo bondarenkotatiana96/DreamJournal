@@ -16,47 +16,13 @@ struct EntryListView: View {
             
             // Dashboard
             ScrollView {
-                VStack {
-                    HStack {
-                        // Day streak tile
-                        ZStack {
-                            Rectangle().fill(.ultraThinMaterial)
-                            VStack {
-                                Text(String(viewModel.streak))
-                                    .font(.title)
-                                    .bold()
-                                Text("DAY STREAK")
-                                    .font(.headline)
-                            }
-                        }.cornerRadius(12)
-                        
-                        VStack {
-                            // Total entries tile
-                            ZStack {
-                                Rectangle().fill(.ultraThinMaterial)
-                                VStack {
-                                    Text("\(viewModel.entries.count)")
-                                        .font(.title3)
-                                        .bold()
-                                    Text("ENTRIES")
-                                        .font(.caption)
-                                }
-                            }.cornerRadius(12)
-                            
-                            // Journaled today tile
-                            ZStack {
-                                Rectangle().fill(.ultraThinMaterial)
-                                VStack {
-                                    Image(systemName: viewModel.hasJournaled ? "checkmark.circle.fill" : "xmark.circle.fill")
-                                    Text("JOURNALED TODAY")
-                                        .font(.caption2)
-                                }
-                            }.cornerRadius(12)
-                        }
-                    }
-                }.padding(.horizontal)
+                JournalDashBoard(viewModel: viewModel)
+                    .padding(.horizontal)
                     .frame(height: 140)
                 
+                if viewModel.entries.isEmpty {
+                    EmptyJournalTile()
+                } else {
                 // List of entries
                 List {
                     Section("My  Entries") {
@@ -67,14 +33,8 @@ struct EntryListView: View {
                                 DetailView(entry: entry, entryViewModel: viewModel)
                             } label: {
                                 // What our navigation lint looks like
-                                VStack(alignment: .leading, spacing: 8) {
-                                    Text(entry.title)
-                                        .bold()
-                                        .font(.headline)
-                                    Text(entry.body)
-                                        .font(.system(size: 14))
-                                        .lineLimit(2)
-                                }.padding()
+                                JournalRowView(entry: entry)
+                                    .padding()
                                     .frame(maxHeight: 120)
                             }
                         }
@@ -83,6 +43,7 @@ struct EntryListView: View {
                 }
                 .frame(height: CGFloat(viewModel.entries.count) * 100 + 16)
                 .listStyle(.plain)
+                }
             }
             .navigationTitle("Dream Journal")
             .toolbar {
@@ -110,5 +71,102 @@ struct EntryListView: View {
 struct EntryListView_Previews: PreviewProvider {
     static var previews: some View {
         EntryListView()
+    }
+}
+
+struct EmptyJournalTile: View {
+    var body: some View {
+        VStack {
+            Divider()
+        ZStack {
+            Rectangle().fill(.ultraThinMaterial)
+            Text(EntryListViewModel.emptyMessage)
+                .font(.system(.caption, design: .monospaced))
+                    .padding()
+        }.cornerRadius(12)
+            .frame(width: UIScreen.main.bounds.width - 40)
+            .padding(.top)
+        }
+    }
+}
+
+struct JournalRowView: View {
+    var entry: Entry
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(entry.title)
+                .bold()
+                .font(.headline)
+            Text(entry.body)
+                .font(.system(size: 14))
+                .lineLimit(2)
+        }
+    }
+}
+
+struct JournalDashBoard: View {
+    @ObservedObject var viewModel: EntryListViewModel
+    var body: some View {
+        VStack {
+            HStack {
+                // Day streak tile
+                DayStreakTile(viewModel: viewModel)
+                
+                VStack {
+                    // Total entries tile
+                    TotalEntriesTile(viewModel: viewModel)
+                    
+                    // Journaled today tile
+                    JournaledTodayTile(viewModel: viewModel)
+                }
+            }
+        }
+    }
+}
+
+struct DayStreakTile: View {
+    @ObservedObject var viewModel: EntryListViewModel
+    var body: some View {
+        ZStack {
+            Rectangle().fill(.ultraThinMaterial)
+            VStack {
+                Text(String(viewModel.streak))
+                    .font(.title)
+                    .bold()
+                Text(viewModel.dayStreakText)
+                    .font(.headline)
+            }
+        }.cornerRadius(12)
+    }
+}
+
+struct TotalEntriesTile: View {
+    @ObservedObject var viewModel: EntryListViewModel
+    var body: some View {
+        ZStack {
+            Rectangle().fill(.ultraThinMaterial)
+            VStack {
+                Text("\(viewModel.entries.count)")
+                    .font(.title3)
+                    .bold()
+                Text(viewModel.entriesText)
+                    .font(.caption)
+            }
+        }.cornerRadius(12)
+    }
+}
+
+struct JournaledTodayTile: View {
+    @ObservedObject var viewModel: EntryListViewModel
+    var body: some View {
+        ZStack {
+            Rectangle().fill(.ultraThinMaterial)
+            VStack {
+                Image(systemName: viewModel.hasJournaled ? "checkmark.circle.fill" : "xmark.circle.fill")
+                Text(viewModel.journaledTodayText)
+                    .font(.caption2)
+            }
+        }.cornerRadius(12)
     }
 }

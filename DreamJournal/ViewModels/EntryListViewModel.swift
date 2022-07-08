@@ -24,6 +24,12 @@ class EntryListViewModel: ObservableObject {
 //        Entry(title: "Test4", body: "This is my body. All of the details of my dream will be written here."),
 //    ]
     
+    // MARK: - Magic Strings
+    let dayStreakText = "DAY STREAK"
+    let entriesText = "ENTRIES"
+    let journaledTodayText = "JOURNALED TODAY"
+    static let emptyMessage = "You have not written any entries yet!"
+    
     // MARK: - CRUD
     func createEntry(_ entry: Entry) {
         entries.append(entry)
