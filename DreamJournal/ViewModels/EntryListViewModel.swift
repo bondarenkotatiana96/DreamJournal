@@ -40,6 +40,10 @@ class EntryListViewModel: ObservableObject {
         saveToPersistenceStore()
     }
     
+    func deleteEntry(indexSet: IndexSet) {
+        entries.remove(atOffsets: indexSet)
+    }
+    
     // MARK: - DASHBOARD
     
     // Calculate current streak

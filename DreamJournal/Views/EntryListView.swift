@@ -78,6 +78,7 @@ struct EntryListView: View {
                                     .frame(maxHeight: 120)
                             }
                         }
+                        .onDelete(perform: viewModel.deleteEntry(indexSet:))
                     }
                 }
                 .frame(height: CGFloat(viewModel.entries.count) * 100 + 16)
